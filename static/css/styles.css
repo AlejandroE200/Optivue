@@ -3,11 +3,11 @@
     padding: 40px 0;
     background-color: #f8f9fa;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: auto; /* Permite scroll horizontal si es necesario */
 }
 
 .contenedor-ubicacion {
-    max-width: 1400px;
+    width: 1200px; /* Ancho fijo suficiente para ambas tarjetas */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -15,20 +15,19 @@
 .mapa-container {
     display: flex;
     gap: 40px;
+    width: 100%;
+    flex-wrap: nowrap; /* Importante: evita que se bajen a otra línea */
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    min-width: min-content;
 }
 
 .ubicacion-info {
-    flex: 0 0 auto;
-    width: 500px;
+    flex: 0 0 550px; /* Ancho fijo sin crecimiento/reducción */
     background: white;
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e9ecef;
+    min-height: 600px; /* Altura consistente */
 }
 
 .ubicacion-info h2 {
@@ -85,7 +84,25 @@
     box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
 
-/* Ocultar scrollbar pero mantener funcionalidad */
+/* Para pantallas más pequeñas donde quepa todo */
+@media (max-width: 1200px) {
+    .contenedor-ubicacion {
+        width: 100%;
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 1140px) {
+    .mapa-container {
+        justify-content: flex-start; /* Permite scroll horizontal */
+    }
+    
+    .ubicacion-info {
+        flex: 0 0 500px;
+    }
+}
+
+/* Scrollbar styling */
 .seccion-ubicacion::-webkit-scrollbar {
     height: 8px;
 }
@@ -103,58 +120,6 @@
 .seccion-ubicacion::-webkit-scrollbar-thumb:hover {
     background: #2980b9;
 }
-
-/* Responsive */
-@media (max-width: 1200px) {
-    .ubicacion-info {
-        width: 450px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .mapa-container {
-        gap: 30px;
-    }
-    
-    .ubicacion-info {
-        width: 400px;
-        padding: 25px;
-    }
-}
-
-@media (max-width: 900px) {
-    .ubicacion-info {
-        width: 350px;
-        padding: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .mapa-container {
-        gap: 20px;
-    }
-    
-    .ubicacion-info {
-        width: 320px;
-        padding: 20px;
-    }
-    
-    .ubicacion-info h2 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 700px) {
-    .mapa-container {
-        justify-content: flex-start;
-        padding: 0 20px;
-    }
-    
-    .ubicacion-info {
-        width: 300px;
-    }
-}
-
 
 
 

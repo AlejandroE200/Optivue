@@ -634,8 +634,6 @@ footer {
 .servicio-imagen img {
     max-width: 300px;
     height: 200px;
-
-    
 }
 
 .servicio-card:hover .servicio-imagen img {
@@ -654,13 +652,18 @@ footer {
     color: #2c3e50;
     font-size: 1.5rem;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .servicio-contenido p {
     color: #555;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 20px;
     flex-grow: 1;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-spacing: -0.02em;
 }
 
 .servicio-boton {
@@ -682,23 +685,7 @@ footer {
     box-shadow: 0 5px 15px rgba(75, 108, 183, 0.4);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contenedor-servicios {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .servicio-card {
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-
-
-
-
+/* Botón Ver Detalles */
 .btn-ver-detalles {
     background-color: #e74c3c;
     color: white;
@@ -710,6 +697,10 @@ footer {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+    text-align: center;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .btn-ver-detalles:hover {
@@ -721,6 +712,44 @@ footer {
 .btn-ver-detalles:active {
     transform: translateY(0);
     box-shadow: 0 3px 6px rgba(231, 76, 60, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .servicio-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .servicio-contenido p {
+        text-align: justify;
+        word-spacing: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .servicios-section {
+        padding: 60px 15px;
+    }
+    
+    .titulo-servicios {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .servicio-contenido {
+        padding: 20px;
+    }
+    
+    .servicio-contenido p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
 }
 
 

@@ -572,7 +572,7 @@ footer {
 
 
 
-
+/* ESTILOS ESPECÍFICOS PARA JUSTIFICAR TEXTO EN SERVICIOS */
 .servicios-section {
     padding: 80px 20px;
     background-color: #f8f9fa;
@@ -634,10 +634,12 @@ footer {
 .servicio-imagen img {
     max-width: 300px;
     height: 200px;
+    object-fit: cover;
 }
 
 .servicio-card:hover .servicio-imagen img {
     transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 .servicio-contenido {
@@ -655,15 +657,17 @@ footer {
     text-align: center;
 }
 
+/* ESTILO ESPECÍFICO PARA JUSTIFICAR EL TEXTO */
 .servicio-contenido p {
     color: #555;
     line-height: 1.7;
     margin-bottom: 20px;
     flex-grow: 1;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    word-spacing: -0.02em;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    word-spacing: normal !important;
+    text-align-last: left;
 }
 
 .servicio-boton {
@@ -677,41 +681,15 @@ footer {
     text-align: center;
     transition: all 0.3s ease;
     margin-top: auto;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .servicio-boton:hover {
     background: linear-gradient(90deg, #182848, #4b6cb7);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(75, 108, 183, 0.4);
-}
-
-/* Botón Ver Detalles */
-.btn-ver-detalles {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
-    text-align: center;
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-}
-
-.btn-ver-detalles:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(231, 76, 60, 0.4);
-}
-
-.btn-ver-detalles:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(231, 76, 60, 0.3);
 }
 
 /* Responsive */
@@ -727,8 +705,8 @@ footer {
     }
     
     .servicio-contenido p {
-        text-align: justify;
-        word-spacing: 0;
+        text-align: justify !important;
+        text-justify: inter-word !important;
     }
 }
 
@@ -751,6 +729,11 @@ footer {
         line-height: 1.6;
     }
 }
+
+
+
+
+
 
 
 

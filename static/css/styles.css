@@ -2,6 +2,8 @@
 .seccion-ubicacion {
     padding: 40px 0;
     background-color: #f8f9fa;
+    width: 100%;
+    overflow-x: auto;
 }
 
 .contenedor-ubicacion {
@@ -13,19 +15,10 @@
 .mapa-container {
     display: flex;
     gap: 40px;
-    overflow-x: auto;
-    padding: 20px 0;
-    scroll-behavior: smooth;
-}
-
-/* Ocultar scrollbar pero mantener funcionalidad */
-.mapa-container::-webkit-scrollbar {
-    display: none;
-}
-
-.mapa-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    min-width: min-content;
 }
 
 .ubicacion-info {
@@ -44,6 +37,7 @@
     font-size: 1.8rem;
     border-bottom: 3px solid #3498db;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 .ubicacion-info p {
@@ -79,8 +73,10 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 10px;
+    display: block;
+    margin: 20px auto 0;
+    text-align: center;
+    width: 200px;
 }
 
 .btn-ubicacion:hover {
@@ -89,36 +85,58 @@
     box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
 
-/* Indicadores de scroll (opcional) */
-.indicadores-scroll {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+/* Ocultar scrollbar pero mantener funcionalidad */
+.seccion-ubicacion::-webkit-scrollbar {
+    height: 8px;
 }
 
-.indicador {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #bdc3c7;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.seccion-ubicacion::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
 }
 
-.indicador.activo {
+.seccion-ubicacion::-webkit-scrollbar-thumb {
     background: #3498db;
+    border-radius: 4px;
+}
+
+.seccion-ubicacion::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+    .ubicacion-info {
+        width: 450px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mapa-container {
+        gap: 30px;
+    }
+    
+    .ubicacion-info {
+        width: 400px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 900px) {
     .ubicacion-info {
         width: 350px;
         padding: 20px;
     }
-    
+}
+
+@media (max-width: 768px) {
     .mapa-container {
         gap: 20px;
+    }
+    
+    .ubicacion-info {
+        width: 320px;
+        padding: 20px;
     }
     
     .ubicacion-info h2 {
@@ -126,16 +144,17 @@
     }
 }
 
-@media (max-width: 480px) {
-    .ubicacion-info {
-        width: 300px;
-        padding: 15px;
+@media (max-width: 700px) {
+    .mapa-container {
+        justify-content: flex-start;
+        padding: 0 20px;
     }
     
-    .imagen-ubicacion img {
-        height: 150px;
+    .ubicacion-info {
+        width: 300px;
     }
 }
+
 
 
 

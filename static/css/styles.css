@@ -3,11 +3,10 @@
     padding: 40px 0;
     background-color: #f8f9fa;
     width: 100%;
-    overflow-x: auto; /* Permite scroll horizontal si es necesario */
 }
 
 .contenedor-ubicacion {
-    width: 1200px; /* Ancho fijo suficiente para ambas tarjetas */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -15,19 +14,18 @@
 .mapa-container {
     display: flex;
     gap: 40px;
-    width: 100%;
-    flex-wrap: nowrap; /* Importante: evita que se bajen a otra línea */
     justify-content: center;
+    align-items: flex-start;
 }
 
 .ubicacion-info {
-    flex: 0 0 550px; /* Ancho fijo sin crecimiento/reducción */
+    flex: 1;
+    max-width: 500px;
     background: white;
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e9ecef;
-    min-height: 600px; /* Altura consistente */
 }
 
 .ubicacion-info h2 {
@@ -84,43 +82,17 @@
     box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
 }
 
-/* Para pantallas más pequeñas donde quepa todo */
-@media (max-width: 1200px) {
-    .contenedor-ubicacion {
-        width: 100%;
-        max-width: 1200px;
-    }
-}
-
-@media (max-width: 1140px) {
+/* Responsive */
+@media (max-width: 768px) {
     .mapa-container {
-        justify-content: flex-start; /* Permite scroll horizontal */
+        flex-direction: column;
+        align-items: center;
     }
     
     .ubicacion-info {
-        flex: 0 0 500px;
+        max-width: 100%;
     }
 }
-
-/* Scrollbar styling */
-.seccion-ubicacion::-webkit-scrollbar {
-    height: 8px;
-}
-
-.seccion-ubicacion::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.seccion-ubicacion::-webkit-scrollbar-thumb {
-    background: #3498db;
-    border-radius: 4px;
-}
-
-.seccion-ubicacion::-webkit-scrollbar-thumb:hover {
-    background: #2980b9;
-}
-
 
 
 

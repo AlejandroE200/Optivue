@@ -183,5 +183,39 @@
     </footer>
 
 
+       <script>
+        // Funciones para el modal
+        function abrirModal() {
+            const modal = document.getElementById('modalImagen');
+            modal.style.display = 'block';
+            // NO desactivamos el scroll del body
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modalImagen');
+            modal.style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalImagen');
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                cerrarModal();
+            }
+        });
+
+        // Prevenir que el clic en el contenido cierre el modal
+        document.querySelector('.modal-contenido').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    </script>
+
 </body>
 </html>

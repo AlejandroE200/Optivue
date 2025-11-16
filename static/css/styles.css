@@ -387,6 +387,9 @@ footer {
 
 
 
+
+
+
 /* Estilos para la sección Quiénes Somos */
 .quienes-somos {
     padding: 60px 20px;
@@ -396,7 +399,6 @@ footer {
 .contenido-quienes-somos {
     max-width: 1000px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .contenido-quienes-somos h2 {
@@ -404,8 +406,11 @@ footer {
     color: #2c3e50;
     margin-bottom: 30px;
     font-weight: 700;
+    text-align: center;
     position: relative;
     display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .contenido-quienes-somos h2::after {
@@ -434,7 +439,9 @@ footer {
     margin-bottom: 20px;
     color: #555;
     font-size: 1.1rem;
+    text-justify: inter-word;
     hyphens: auto;
+    word-spacing: -0.05em;
 }
 
 .texto-quienes-somos p:last-child {
@@ -479,20 +486,26 @@ footer {
     font-weight: 600;
 }
 
-.cuadro-info p {
+/* Texto justificado para Misión, Visión y Valores */
+.cuadro-info:nth-child(1) p,
+.cuadro-info:nth-child(2) p,
+.cuadro-info:nth-child(3) p {
     text-align: justify;
     line-height: 1.7;
     color: #666;
     font-size: 1rem;
+    text-justify: inter-word;
     hyphens: auto;
+    word-spacing: -0.05em;
 }
 
-/* Estilo especial para el cuadro de contacto */
+/* Contacto centrado (solo el último cuadro) */
 .cuadro-info:last-child p {
     text-align: center;
     font-size: 1.3rem;
     font-weight: 600;
     color: #3498db;
+    line-height: 1.5;
 }
 
 /* Responsive */
@@ -511,7 +524,8 @@ footer {
     
     .texto-quienes-somos p {
         font-size: 1rem;
-        text-align: left; /* En móvil es mejor left que justify */
+        text-align: justify; /* Mantiene justificado en móvil */
+        word-spacing: 0; /* Ajusta espaciado para móvil */
     }
     
     .cuadros-empresa {
@@ -525,7 +539,8 @@ footer {
     }
     
     .cuadro-info p {
-        text-align: left; /* En móvil es mejor left que justify */
+        text-align: justify; /* Mantiene justificado en móvil */
+        word-spacing: 0; /* Ajusta espaciado para móvil */
     }
 }
 
@@ -534,24 +549,18 @@ footer {
         padding: 20px;
     }
     
+    .texto-quienes-somos p {
+        font-size: 0.95rem;
+    }
+    
     .cuadro-info {
         padding: 20px 15px;
     }
-}
-
-/* Responsive para móviles */
-@media (max-width: 768px) {
-    .texto-quienes-somos {
-        columns: 1;
-    }
     
-    .quienes-somos h2 {
-        font-size: 2rem;
+    .cuadro-info p {
+        font-size: 0.95rem;
     }
 }
-
-
-
 
 
 

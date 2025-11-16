@@ -16,42 +16,52 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.7);
             animation: fadeIn 0.3s ease;
+            overflow-y: auto; /* Permite scroll vertical */
         }
 
         .modal-contenido {
             position: relative;
-            margin: auto;
+            margin: 50px auto;
             display: block;
             width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            margin-top: 5vh;
+            max-width: 1200px;
             animation: zoomIn 0.3s ease;
+            padding: 20px 0;
         }
 
         .modal-contenido img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            display: block;
         }
 
         .cerrar {
-            position: absolute;
-            top: 15px;
-            right: 35px;
+            position: fixed;
+            top: 20px;
+            right: 30px;
             color: #fff;
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
             z-index: 1001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
         }
 
         .cerrar:hover {
-            color: #bbb;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
             transform: scale(1.1);
         }
 
@@ -61,7 +71,7 @@
         }
 
         @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
+            from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
@@ -70,19 +80,38 @@
             color: #3498db;
             transform: translateY(-2px);
         }
+
+        /* Información de la imagen */
+        .info-imagen {
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 12px 12px;
+            margin-top: -5px;
+            text-align: center;
+        }
+
+        .info-imagen h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .info-imagen p {
+            color: #666;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <img src="static/logo.png" width="160" height="90">
+            <img src="static/logo-optivue-final.png" width="160" height="90">
             
             <ul class="menu" id="menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="ubicacion.html">¿Donde nos encuentras?</a></li>
-                <li><a href="#" class="nav-galeria" onclick="abrirModal()">Galería</a></li>
+                <li><a href="#" class="nav-galeria" onclick="abrirModal(); return false;">Galería</a></li>
             </ul>
         </div>
     </nav>
@@ -91,7 +120,11 @@
     <div id="modalImagen" class="modal">
         <span class="cerrar" onclick="cerrarModal()">&times;</span>
         <div class="modal-contenido">
-            <img src="static/poster-optivue.png" alt="Poster Educativo Optivue">
+            <img src="static/galeria-optivue.jpg" alt="Optivue - Nuestras modernas instalaciones">
+            <div class="info-imagen">
+                <h3>Nuestras Instalaciones</h3>
+                <p>Conoce nuestras modernas instalaciones equipadas con tecnología de última generación para tu cuidado visual.</p>
+            </div>
         </div>
     </div>
 
@@ -142,13 +175,14 @@
     <script>
         // Funciones para el modal
         function abrirModal() {
-            document.getElementById('modalImagen').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Evita scroll en el fondo
+            const modal = document.getElementById('modalImagen');
+            modal.style.display = 'block';
+            // NO desactivamos el scroll del body
         }
 
         function cerrarModal() {
-            document.getElementById('modalImagen').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restaura el scroll
+            const modal = document.getElementById('modalImagen');
+            modal.style.display = 'none';
         }
 
         // Cerrar modal al hacer clic fuera de la imagen
@@ -164,6 +198,11 @@
             if (event.key === 'Escape') {
                 cerrarModal();
             }
+        });
+
+        // Prevenir que el clic en el contenido cierre el modal
+        document.querySelector('.modal-contenido').addEventListener('click', function(event) {
+            event.stopPropagation();
         });
     </script>
 </body>

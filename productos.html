@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,24 +6,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optivue</title>
     <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        /* Estilos para el modal de imagen */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto; /* Permite scroll vertical */
+        }
+
+        .modal-contenido {
+            position: relative;
+            margin: 50px auto;
+            display: block;
+            width: 90%;
+            max-width: 1200px;
+            animation: zoomIn 0.3s ease;
+            padding: 20px 0;
+        }
+
+        .modal-contenido img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            display: block;
+        }
+
+        .cerrar {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .cerrar:hover {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Efecto hover para el enlace de galería */
+        .nav-galeria:hover {
+            color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* Información de la imagen */
+        .info-imagen {
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 12px 12px;
+            margin-top: -5px;
+            text-align: center;
+        }
+
+        .info-imagen h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .info-imagen p {
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-                <img src="static/logo.png" width="160" height="90">
-            
-            
-            
+            <img src="static/logo.png" width="160" height="90">
             
             <ul class="menu" id="menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="ubicacion.html">¿Donde nos encuentras?</a></li>
+                <li><a href="#" class="nav-galeria" onclick="abrirModal(); return false;">Poster Educativo</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Modal para la imagen desplegable -->
+    <div id="modalImagen" class="modal">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <div class="modal-contenido">
+            <img src="static/poster-optivue.png" alt="Poster informativo">
+            <div class="info-imagen">
+                
+            </div>
+        </div>
+    </div>
 
 
 

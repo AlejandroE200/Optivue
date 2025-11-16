@@ -762,3 +762,23 @@ footer {
     background: linear-gradient(90deg, #3498db, #2c3e50);
     border-radius: 2px;
 }
+
+
+
+
+.btn-ver-detalles {
+    background-color: #FF8C00; /* Color naranja */
+    color: white; /* Letra blanca */
+    border-radius: 25px; /* Bordes redondeados */
+    border: none; /* Eliminar borde por defecto */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor de mano al pasar por encima */
+    transition: all 0.3s ease; /* Transición suave para efectos */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.btn-ver-detalles:hover {
+    background-color: #FF6B00; /* Naranja más oscuro al hover */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+}

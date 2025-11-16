@@ -387,36 +387,28 @@ footer {
 
 
 
+/* Estilos para la sección Quiénes Somos */
 .quienes-somos {
-    width: 100%;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 60px 20px;
-    margin: 50px 0;
-    box-sizing: border-box;
-    transition: all 0.4s ease;
-}
-
-.quienes-somos:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .contenido-quienes-somos {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
 
-.quienes-somos h2 {
-    color: #2c3e50;
+.contenido-quienes-somos h2 {
     font-size: 2.5rem;
+    color: #2c3e50;
     margin-bottom: 30px;
+    font-weight: 700;
     position: relative;
     display: inline-block;
 }
 
-.quienes-somos h2::after {
+.contenido-quienes-somos h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -424,25 +416,127 @@ footer {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #4b6cb7, #182848);
-    transition: width 0.3s ease;
-}
-
-.quienes-somos:hover h2::after {
-    width: 120px;
+    background: linear-gradient(90deg, #3498db, #2c3e50);
+    border-radius: 2px;
 }
 
 .texto-quienes-somos {
-    columns: 2;
-    column-gap: 40px;
-    text-align: justify;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .texto-quienes-somos p {
-    color: #34495e;
+    text-align: justify;
     line-height: 1.8;
     margin-bottom: 20px;
+    color: #555;
     font-size: 1.1rem;
+    hyphens: auto;
+}
+
+.texto-quienes-somos p:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilos para los cuadros de empresa */
+.cuadros-empresa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.cuadro-info {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.cuadro-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.icono-cuadro {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.cuadro-info h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.cuadro-info p {
+    text-align: justify;
+    line-height: 1.7;
+    color: #666;
+    font-size: 1rem;
+    hyphens: auto;
+}
+
+/* Estilo especial para el cuadro de contacto */
+.cuadro-info:last-child p {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quienes-somos {
+        padding: 40px 15px;
+    }
+    
+    .contenido-quienes-somos h2 {
+        font-size: 2rem;
+    }
+    
+    .texto-quienes-somos {
+        padding: 25px;
+    }
+    
+    .texto-quienes-somos p {
+        font-size: 1rem;
+        text-align: left; /* En móvil es mejor left que justify */
+    }
+    
+    .cuadros-empresa {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 40px auto;
+    }
+    
+    .cuadro-info {
+        padding: 25px 20px;
+    }
+    
+    .cuadro-info p {
+        text-align: left; /* En móvil es mejor left que justify */
+    }
+}
+
+@media (max-width: 480px) {
+    .texto-quienes-somos {
+        padding: 20px;
+    }
+    
+    .cuadro-info {
+        padding: 20px 15px;
+    }
 }
 
 /* Responsive para móviles */
@@ -459,59 +553,6 @@ footer {
 
 
 
-.cuadros-empresa {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.cuadro-info {
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    width: 280px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.cuadro-info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #4b6cb7, #182848);
-}
-
-.cuadro-info:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.cuadro-info h3 {
-    color: #2c3e50;
-    margin-top: 0;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.cuadro-info p {
-    color: #555;
-    line-height: 1.6;
-}
-
-.icono-cuadro {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #4b6cb7;
-}
 
 
 

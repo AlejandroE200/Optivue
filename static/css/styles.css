@@ -101,15 +101,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial MT Pro', 'Arial Black', 'Arial', 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Segoe UI', 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
-/* Fallback para sistemas sin Arial MT Pro */
-@font-face {
-    font-family: 'Arial MT Pro';
-    src: local('Arial Black'), local('Arial-Bold');
-    font-weight: normal;
-}
+
+
 
 body {
     background-color: #efefef;
